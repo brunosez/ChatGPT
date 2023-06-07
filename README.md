@@ -25,7 +25,7 @@ Voir le papier " A survey of LLM figure 1"
 
 Voir le slide d'Andrew Karpathy
 
-![GPT Pipeline d'entrainement](img/GPT-TraingPipelines.png "GPT Pipeline d'entrainement").
+![GPT Pipeline d'entrainement](img/GPT-TrainingPipelines.PNG "GPT Pipeline d'entrainement").
 
  
  Webotheque : folder doc et/ou fichiers links
