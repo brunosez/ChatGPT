@@ -7,3 +7,7 @@ https://arxiv.org/pdf/2303.18223.pdf
 
 ## GPT4 Technical Report
 https://cdn.openai.com/papers/gpt-4.pdf
+
+## State of GPT
+Video Andrej Karpathy
+https://www.youtube.com/watch?v=bZQun8Y4L2A
