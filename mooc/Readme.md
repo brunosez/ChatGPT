@@ -19,3 +19,17 @@ https://www.wandb.courses/courses/building-llm-powered-apps
 Ceux sur le ML Ops étaient bien fait, cela necessite de se mettre sans cet environnement (dispo gratuit à titre personnel
  avec des quotas)
 
+
+ Videos qq refs
+
+ https://www.youtube.com/@YannicKilcher/videos
+
+ Yann Le Cun , vu cette année à l'IHES pour le colloque 60 ans Stéphane Mallat
+
+ ML Sucks https://www.youtube.com/watch?v=OKkEdTchsiE
+ 
+ 
+ Nombreuses videos un peu partout sur le developpement et déploiement
+
+ https://home.mlops.community/home/videos/
+
