@@ -18,4 +18,8 @@ https://www.youtube.com/watch?v=bZQun8Y4L2A
 ## LangChain and all
 https://brilliantbytes.beehiiv.com/p/langchain-autogpt-agi
 
+## Emerging LLM Stack
+https://a16z.com/2023/06/20/emerging-architectures-for-llm-applications/
+
+
 
