@@ -27,6 +27,19 @@ Voir le slide d'Andrew Karpathy
 
 ![GPT Pipeline d'entrainement](img/GPT-TrainingPipelines.PNG "GPT Pipeline d'entrainement").
 
+* LangChain
+
+  un LLM est associé au monde exterieur ( moteur de recherche, calculatrice , calendrier etc ..) via differents connecteurs voir les workflow suivants
+
+![GPT et LangChain](img/LangChain.png "GPT et LangChain").
+
+ * Emerging-LLM-App-Stack
+
+![LLM stack ](img/Emerging-LLM-App-Stack.png "GPT et LLM new stack").
+  
+
  
- Webotheque : folder doc et/ou fichiers links
+# Webotheque 
+
+folder doc et mooc et/ou fichiers links
  
