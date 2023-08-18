@@ -16,6 +16,8 @@ Nouveaux MOOC proposés par Weight and Bias qui est un environnment complet de M
 
 https://www.wandb.courses/courses/building-llm-powered-apps
 
+https://llm-course.wandb.events/home (à venir le 23 aout)
+
 Ceux sur le ML Ops étaient bien fait, cela necessite de se mettre sans cet environnement (dispo gratuit à titre personnel
  avec des quotas)
 
