@@ -26,5 +26,9 @@ TRL = Transformer Reinforcement Learning
 
 https://huggingface.co/docs/trl/main/en/quickstart
 
+## Offre GCP (Google) détaillée par Romain Jouin 
+
+https://github.com/GoogleCloudPlatform/generative-ai
+
 
 
