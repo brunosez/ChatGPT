@@ -30,5 +30,7 @@ https://huggingface.co/docs/trl/main/en/quickstart
 
 https://github.com/GoogleCloudPlatform/generative-ai
 
+![explications github Google](./doc-RomainJouin.pdf "Explications Github google").
+
 
 
