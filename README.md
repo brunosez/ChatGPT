@@ -35,7 +35,15 @@ Voir le slide d'Andrew Karpathy
 
  * Emerging-LLM-App-Stack
 
+   Graphique détaillé des modules en jeu lors d'un déploiement LLM , voir une vision épurée avec RAG
+
 ![LLM stack ](img/Emerging-LLM-App-Stack.png "GPT et LLM new stack").
+
+* Retrieval Augmented Generation , RAG
+  
+  Ce pattern permet de préciser le contexte à placer dans le prompt. Il force un prompt engineering sur et permet par exemple d'ajouter des références dans la réponse pour des requetes sur ses propres données qui ont été "embeddés" dans une base de données "Vecteur". Embedding ou plongement est l'espace abstrait (multimodal eventuellement) qui transforme une requete ou un texte dans un vecteur. Voir par exemple Word2Vec pour l'apparition de cette notion
+
+![RAG fwk ](img/RAG.png "RAG Framework").  
   
 
  
