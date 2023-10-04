@@ -32,5 +32,9 @@ https://github.com/GoogleCloudPlatform/generative-ai
 
 ![explications github Google](./doc-RomainJouin.pdf "Explications Github google").
 
+## RAG vs Fine-Tuning , vaste débat de l'été 2023
+
+https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1
+
 
 
