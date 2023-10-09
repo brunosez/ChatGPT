@@ -36,5 +36,9 @@ https://github.com/GoogleCloudPlatform/generative-ai
 
 https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1
 
+## Blog technique de Sicara
+
+https://www.sicara.fr/blog-technique/
+
 
 
