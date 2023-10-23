@@ -44,6 +44,11 @@ Voir le slide d'Andrew Karpathy
   Ce pattern permet de préciser le contexte à placer dans le prompt. Il force un prompt engineering sur et permet par exemple d'ajouter des références dans la réponse pour des requetes sur ses propres données qui ont été "embeddés" dans une base de données "Vecteur". Embedding ou plongement est l'espace abstrait (multimodal eventuellement) qui transforme une requete ou un texte dans un vecteur. Voir par exemple Word2Vec pour l'apparition de cette notion
 
 ![RAG fwk ](img/RAG.png "RAG Framework").  
+
+Une autre vue , par weights and bias ( wandb.ai )
+
+![RAG fwk ](img/wandb-course.png "RAG Framework 2").  
+
   
 
  
