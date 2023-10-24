@@ -52,5 +52,15 @@ https://github.com/guardrails-ai/guardrails
 
 https://docs.guardrailsai.com/
 
+## Framework Rebuff 
+
+Détection des Prompts Injections Attacks, on retrouve les attaques d'injection de code SQL malicieux
+
+https://github.com/protectai/rebuff
+
+On peut s'entrainer ici pour faire des injections
+
+https://www.rebuff.ai/playground
+
 
 
