@@ -44,5 +44,13 @@ https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-a
 
 https://www.sicara.fr/blog-technique/
 
+## Framework OSS Guardrails AI
+
+Pour controler finement les sorties d"un LLM et faire du reprompting automatiquement !! Genial
+
+https://github.com/guardrails-ai/guardrails
+
+https://docs.guardrailsai.com/
+
 
 
