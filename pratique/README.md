@@ -12,6 +12,11 @@ https://www.philschmid.de/instruction-tune-llama-2
 Essai à venir sur documentation massa sur une instance paperspace
 https://massa.net
 
+Voici l'appli Gradio sur HF , hebergement gratuit , par contre API call à Open AI payant ( au token )
+
+https://huggingface.co/spaces/bruno16/massa_qa
+
+
 Notebook d'Anne-Marie Roy
 
 https://github.com/royam0820/HuggingFace/tree/main
