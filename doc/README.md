@@ -40,6 +40,13 @@ https://github.com/GoogleCloudPlatform/generative-ai
 
 https://www.anyscale.com/blog/a-comprehensive-guide-for-building-rag-based-llm-applications-part-1
 
+## Design Pattern for RAG , article et video , très belle synthèse sur outils / démarches pour contruite une App basée sur un LLM
+
+https://eugeneyan.com/writing/llm-patterns/
+
+https://eugeneyan.com/speaking/ai-eng-summit/
+
+
 ## Blog technique de Sicara
 
 https://www.sicara.fr/blog-technique/
