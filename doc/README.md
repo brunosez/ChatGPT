@@ -69,5 +69,7 @@ On peut s'entrainer ici pour faire des injections
 
 https://www.rebuff.ai/playground
 
+## Fine tuning du RAG framework ( article en anglais de Sebastian Raschka )
 
+https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms
 
