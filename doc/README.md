@@ -76,3 +76,9 @@ https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms
 ## Recent medium tutorial ressouces
 
 https://pub.towardsai.net/advanced-rag-techniques-an-illustrated-overview-04d193d8fec6
+
+## Ahmed Besbes
+
+https://towardsdatascience.com/quickly-evaluate-your-rag-without-manually-labeling-test-data-43ade0ae187a
+
+
