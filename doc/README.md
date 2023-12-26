@@ -73,3 +73,6 @@ https://www.rebuff.ai/playground
 
 https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms
 
+## Recent medium tutorial ressouces
+
+https://pub.towardsai.net/advanced-rag-techniques-an-illustrated-overview-04d193d8fec6
