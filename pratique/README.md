@@ -14,7 +14,7 @@ https://massa.net
 
 Voici l'appli Gradio sur HF , hebergement gratuit , par contre API call à Open AI payant ( au token )
 
-https://huggingface.co/spaces/bruno16/massa_qa
+https://huggingface.co/spaces/bruno16/massa_qa (Run time error à débugger depuis janvier 24 !)
 
 
 Notebook d'Anne-Marie Roy
