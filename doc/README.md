@@ -81,4 +81,8 @@ https://pub.towardsai.net/advanced-rag-techniques-an-illustrated-overview-04d193
 
 https://towardsdatascience.com/quickly-evaluate-your-rag-without-manually-labeling-test-data-43ade0ae187a
 
+## Wenqi Glantz ( à suivre sur LinkedIn ! )
+
+https://towardsdatascience.com/12-rag-pain-points-and-proposed-solutions-43709939a28c
+
 
