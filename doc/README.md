@@ -86,3 +86,10 @@ https://towardsdatascience.com/quickly-evaluate-your-rag-without-manually-labeli
 https://towardsdatascience.com/12-rag-pain-points-and-proposed-solutions-43709939a28c
 
 
+## Teaser pour une conférence à venir (avril 2024)
+
+https://opendatascience.com/is-rag-all-you-need-a-look-at-the-limits-of-retrieval-augmentation/
+
+Ref et schémas interressants
+
+
