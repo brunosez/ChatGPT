@@ -49,6 +49,10 @@ Plan proposé par chatGPT v4 , nous n'aurons pas le temps de tout voir en 30 min
 
 # Plan d'Action pour la Recherche d'Emploi dans l'Industrie du Marché Français (pour un commercial)
 
+Prompt : En tant que directeur commercial, quel serait un plan d'action pour chercher un emploi dans l'industrie du marché français, grande PME ou moyenne PME et ETI ?
+
+Dans un deuxieme temps sortie en markdown
+
 ## 1. Auto-évaluation et Définition des Objectifs
 - **Analyse des compétences :** Identifiez vos compétences clés, vos réalisations et ce qui vous distingue.
 - **Objectifs de carrière :** Définissez clairement ce que vous recherchez en termes de poste, d'industrie, de taille d'entreprise, et de culture d'entreprise.
@@ -79,6 +83,8 @@ Plan proposé par chatGPT v4 , nous n'aurons pas le temps de tout voir en 30 min
 - **Feedback :** Demandez un retour sur vos entretiens non réussis quand c'est possible, cela peut vous aider à vous améliorer pour les prochains.
 
 # Plan d'Action pour la Recherche d'Emploi en tant que DAF
+
+Prompt : En tant que DAF sur le marché français , pouvez-vous me donner un plan d'action pour trouver du travail sur le marché français des ETI , grandes Entreprises et Fonds d'investissement , avec une sortie au format markdown. Merci.
 
 ## 1. Évaluation des Compétences et Spécialisations
 - **Auto-évaluation :** Faites le point sur vos compétences, expériences, et réalisations majeures.
