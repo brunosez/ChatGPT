@@ -1,5 +1,5 @@
 
-## Exposé pour l'UFF 8 mars 2024
+## Exposé pour l'UFF, le 6 mars 2024
 
 Plan proposé par chatGPT v4 , nous n'aurons pas le temps de tout voir en 30 minutes :-)
 
