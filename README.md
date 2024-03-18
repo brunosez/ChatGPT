@@ -49,6 +49,10 @@ Une autre vue , par weights and bias ( wandb.ai )
 
 ![RAG fwk ](img/wandb-course.png "RAG Framework 2").  
 
+Dans le rapport de la commission de l'IA , 13 mars 2024
+
+![Cercle Vertueux de l'IA !](img/LeCercleVertueuxDel'IA.png)
+
   
 
  
