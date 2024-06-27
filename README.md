@@ -53,6 +53,16 @@ Dans le rapport de la commission de l'IA , 13 mars 2024
 
 ![Cercle Vertueux de l'IA !](img/LeCercleVertueuxDel'IA.png)
 
+* Agentic RAG , approche par Agent
+
+  2023 a été l'apparition du RAG , 2024 sera celle de l'approche "agent" et souvent un mixte des deux approches.
+
+  Le RAG donne accès aux données privées de l'entreprise , l'approche agent permet l'utilisation optimale d'outils externes appelés par un ou des LLM.
+
+  Le fine-tuning n'est pas loin non plus. Voir la séparation dans le RAG survey de décembre 2023.
+
+  A la recherche d'un Agentic RAG survey...
+
   
 
  
