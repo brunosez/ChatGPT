@@ -77,7 +77,7 @@ Dans le rapport de la commission de l'IA , 13 mars 2024
 
   Le fine-tuning n'est pas loin non plus. Voir la séparation dans le RAG survey de décembre 2023.
 
-  A la recherche d'un Agentic RAG survey...
+  Voici un Agentic RAG survey [TheRiseAndPoentialofLLMbasedAgent-Survey.pdf](doc/TheRiseAndPoentialofLLMbasedAgent-Survey.pdf)
 
   
 
