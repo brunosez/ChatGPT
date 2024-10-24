@@ -4,14 +4,14 @@ Présentation (in French) des dernières évolutions de l'IA. IA Génératives. 
 ## Sommaire
 - [Historique](#Historique)
 - [Classification des approches](#Classification--des--approches)
-- [ChatGPT](#ChatGP--(novembre--2022))
+- [ChatGPT](#ChatGPT--(novembre--2022))
 - [Profusion de modèles concurrents](#Profusion--de--modèles--concurrents)
 - [Le fine tuning](#Le--fine--tuning)
 - [LangChain](#LangChain)
 - [Emerging-LLM-App-Stack](#Emerging-LLM-App-Stack)
 - [Cercle vertueux de l'IA, 2024](#Cercle--vertueux--de--l'IA,--2024)
 - [Retrieval Augmented Generation , RAG](#Retrieval--Augmented--Generation,--RAG)
-- [Agentic RAG , approche par Agent](#Agentic--RAG--,--approche--par--Agent)
+- [Agentic RAG , approche par Agent](#Agentic--RAG--approche--par--Agent)
 
 
 
