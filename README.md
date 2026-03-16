@@ -216,7 +216,9 @@ A partir d'ici le contenu a été mis à jour avec l'aide d'Opus 4.6 !!
 
   A lire absolument : **"Agents of Chaos"** (février 2026), une étude de red-teaming par des chercheurs de Harvard, MIT, Stanford et Carnegie Mellon. Ils ont déployé 6 agents IA autonomes (avec mémoire persistante, email, Discord, accès shell) pendant 2 semaines et laissé 20 chercheurs les tester, dont certains en mode adversarial. Résultat : divulgation de données sensibles, exécution d'actions destructives, usurpation d'identité entre agents, déni de service... mais aussi des cas de résilience où les agents ont su résister à la manipulation sociale. Le papier met en lumière les vrais risques des agents autonomes au-delà du simple chatbot.
 
-  [AgentsOfChaos.pdf](doc/AgentsOfChaos.pdf) | arXiv : https://arxiv.org/abs/2602.20021 | Site : https://agentsofchaos.baulab.info/
+  - PDF : [AgentsOfChaos-2602.20021.pdf](doc/AgentsOfChaos.pdf)
+  - arXiv : [2602.20021](https://arxiv.org/abs/2602.20021)
+  - Site interactif : [agentsofchaos.baulab.info](https://agentsofchaos.baulab.info/)
 
 
  
