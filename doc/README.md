@@ -34,7 +34,7 @@ https://towardsdatascience.com/fine-tune-your-own-llama-2-model-in-a-colab-noteb
 
 https://github.com/GoogleCloudPlatform/generative-ai
 
-![explications github Google](./doc-RomainJouin.pdf "Explications Github google").
+[explications github Google](./doc-RomainJouin.pdf "Explications Github google").
 
 ## RAG vs Fine-Tuning , vaste débat de l'été 2023
 
