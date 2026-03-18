@@ -204,6 +204,7 @@
         <li><span class="emoji">🆕</span><a href="#raisonnement">L'ère du raisonnement, 2024-2025</a></li>
         <li><span class="emoji">🆕</span><a href="#deepseek">DeepSeek, le séisme open source</a></li>
         <li><span class="emoji">🔧</span><a href="#mcp">Model Context Protocol, MCP</a></li>
+        <li><span class="emoji">🔧</span><a href="#docker">Docker pour l'IA agentique</a></li>
         <li><span class="emoji">🎯</span><a href="#codingagents">Coding Agents</a></li>
         <li><span class="emoji">🧠</span><a href="#paysage2026">Paysage des modèles début 2026</a></li>
         <li><span class="emoji">🆕</span><a href="#kimi">Kimi : le challenger chinois qui monte</a></li>
@@ -333,6 +334,31 @@
     <p>MCP est devenu le standard de facto pour connecter les agents IA au monde réel. C'est le successeur / remplacement de LangChain pour beaucoup d'usages.</p>
     <p class="ref">Ref : <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a></p>
     <p class="ref">Ref : <a href="https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/">First MCP Anniversary</a></p>
+</section>
+
+<section id="docker">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>Docker pour l'IA agentique</h1></div>
+    <p>Docker, la plateforme de conteneurisation utilisée par plus de 20 millions de développeurs, a pivoté fortement vers l'IA agentique en 2025.</p>
+
+    <h3>Gordon, l'agent IA Docker</h3>
+    <p>Lancé en beta en janvier 2025, <a href="https://www.docker.com/blog/meet-gordon-an-ai-agent-for-docker/">Gordon</a> est un assistant IA intégré à Docker Desktop et au CLI. Contexte-aware, il aide au debugging de conteneurs, à l'optimisation de Dockerfiles et au troubleshooting, directement dans le workflow du développeur. Depuis avril 2025 (Docker Desktop 4.40), Gordon supporte nativement le MCP et peut se connecter à des serveurs MCP comme n'importe quel client.</p>
+
+    <h3>Docker Model Runner</h3>
+    <p>Introduit en beta dans Docker Desktop 4.40 (avril 2025), il permet d'exécuter des LLM open-weight localement avec la même simplicité que les conteneurs : <code>docker model pull</code>, <code>docker model run</code>. Basé sur llama.cpp, il expose une API compatible OpenAI, ce qui permet de brancher n'importe quel framework agentique (LangGraph, CrewAI, Spring AI) sans changer une ligne de code.</p>
+
+    <h3>MCP Catalog &amp; Toolkit</h3>
+    <p><a href="https://www.docker.com/blog/introducing-docker-mcp-catalog-and-toolkit/">Annoncé en mai 2025</a>, c'est la pièce maîtresse de la stratégie Docker pour l'IA. Le MCP Catalog, intégré à Docker Hub, propose plus de 200 serveurs MCP vérifiés et conteneurisés (GitHub, Stripe, Elastic, Neo4j, Grafana, Puppeteer...). Le MCP Toolkit dans Docker Desktop permet de les découvrir, configurer et lancer en un clic, avec connexion directe à Claude, Cursor, VS Code, Windsurf ou Goose. Le <a href="https://github.com/docker/mcp-gateway">MCP Gateway</a> unifie tous les serveurs MCP derrière un seul endpoint, avec isolation réseau, gestion OAuth intégrée et traçabilité des appels.</p>
+
+    <h3>Docker Compose pour les agents</h3>
+    <p>En juillet 2025, Docker a étendu Compose pour l'ère agentique. Un agent complet (modèle local + MCP servers + framework) se définit dans un seul <code>compose.yaml</code> et se lance avec <code>docker compose up</code>. Compatible LangGraph, CrewAI, Vercel AI SDK, Spring AI, Google ADK. Le même stack tourne en local, en CI et en production (Google Cloud Run, Azure).</p>
+
+    <h3>Partenariat E2B</h3>
+    <p>Depuis octobre 2025, les sandboxes <a href="https://www.docker.com/blog/docker-e2b-building-the-future-of-trusted-ai/">E2B</a> incluent l'accès au MCP Catalog Docker, permettant aux agents d'exécuter du code et de se connecter à des centaines d'outils dans des MicroVMs isolées.</p>
+
+    <div class="note">En résumé, Docker applique à l'IA la même recette qui a fonctionné pour les microservices : conteneurisation, isolation, reproductibilité et distribution via un hub centralisé. Pour beaucoup de développeurs, c'est le chemin le plus naturel vers les agents en production.</div>
+
+    <p class="ref">Ref : <a href="https://www.docker.com/solutions/docker-ai/">docker.com/solutions/docker-ai</a></p>
+    <p class="ref">Ref : <a href="https://docs.docker.com/ai/mcp-catalog-and-toolkit/">Docker MCP Catalog &amp; Toolkit docs</a></p>
 </section>
 
 <section id="codingagents">
