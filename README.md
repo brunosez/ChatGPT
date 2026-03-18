@@ -66,6 +66,7 @@ Crée par Open AI en 2022. C'est une application de type Chatbot qui a surpassé
 # 🧠 Profusion de modèles concurrents
 
 Voir le papier " A survey of LLM figure 1"
+
 [![Modeles en 2023](img/SurveyOfLLM-2023.jpg " A survey of LLM figure 1")](img/SurveyOfLLM-2023.jpg).
 
 
