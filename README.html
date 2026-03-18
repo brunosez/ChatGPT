@@ -1,202 +1,422 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChatGPT - Webotheque IA Générative</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    line-height: 1.7;
-    color: #24292f;
-    background: #fff;
-  }
-  h1 {
-    border-bottom: 2px solid #d0d7de;
-    padding-bottom: 10px;
-    margin-top: 40px;
-  }
-  h2 {
-    border-bottom: 1px solid #d0d7de;
-    padding-bottom: 6px;
-    margin-top: 30px;
-  }
-  a {
-    color: #0969da;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  code {
-    background: #f6f8fa;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    margin: 10px 0;
-  }
-  hr {
-    border: none;
-    border-top: 2px solid #d0d7de;
-    margin: 40px 0;
-  }
-  ul {
-    padding-left: 24px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  strong {
-    color: #1a1a1a;
-  }
-  blockquote {
-    border-left: 4px solid #d0d7de;
-    margin-left: 0;
-    padding-left: 16px;
-    color: #57606a;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT — Veille IA Générative</title>
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --text: #1a1a1a;
+            --muted: #555;
+            --accent: #2563eb;
+            --border: #e2e2e0;
+            --card-bg: #ffffff;
+            --tag-histoire: #EEEDFE;
+            --tag-histoire-text: #3C3489;
+            --tag-modeles: #E6F1FB;
+            --tag-modeles-text: #0C447C;
+            --tag-outils: #E1F5EE;
+            --tag-outils-text: #085041;
+            --tag-nouveautes: #FAECE7;
+            --tag-nouveautes-text: #712B13;
+            --tag-actus: #FAEEDA;
+            --tag-actus-text: #633806;
+            --tag-cas: #EAF3DE;
+            --tag-cas-text: #27500A;
+            --tag-ressources: #FBEAF0;
+            --tag-ressources-text: #72243E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; margin: 2.5rem 0 0.5rem; }
+        h1:first-of-type { margin-top: 0; }
+        h2 { font-size: 1.4rem; font-weight: 600; margin: 2rem 0 0.8rem; color: var(--text); }
+        h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+
+        p { margin: 0.6rem 0; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .subtitle { color: var(--muted); font-size: 1rem; margin-bottom: 0.3rem; }
+        .update { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-bottom: 2rem; }
+
+        hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Pictogram legend */
+        .legend {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .legend h2 { margin-top: 0; }
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .legend-item .emoji { font-size: 1.3rem; flex-shrink: 0; }
+        .legend-item .label { font-weight: 600; }
+        .legend-item .desc { color: var(--muted); font-size: 0.82rem; }
+
+        .li-histoire { background: var(--tag-histoire); color: var(--tag-histoire-text); }
+        .li-modeles { background: var(--tag-modeles); color: var(--tag-modeles-text); }
+        .li-outils { background: var(--tag-outils); color: var(--tag-outils-text); }
+        .li-nouveautes { background: var(--tag-nouveautes); color: var(--tag-nouveautes-text); }
+        .li-actus { background: var(--tag-actus); color: var(--tag-actus-text); }
+        .li-cas { background: var(--tag-cas); color: var(--tag-cas-text); }
+        .li-ressources { background: var(--tag-ressources); color: var(--tag-ressources-text); }
+
+        /* TOC */
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .toc h2 { margin-top: 0; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { padding: 0.3rem 0; font-size: 0.95rem; }
+        .toc li .emoji { margin-right: 0.4rem; }
+
+        /* Section tags */
+        .tag {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .tag-histoire { background: var(--tag-histoire); color: var(--tag-histoire-text); }
+        .tag-modeles { background: var(--tag-modeles); color: var(--tag-modeles-text); }
+        .tag-outils { background: var(--tag-outils); color: var(--tag-outils-text); }
+        .tag-nouveautes { background: var(--tag-nouveautes); color: var(--tag-nouveautes-text); }
+        .tag-actus { background: var(--tag-actus); color: var(--tag-actus-text); }
+        .tag-cas { background: var(--tag-cas); color: var(--tag-cas-text); }
+        .tag-ressources { background: var(--tag-ressources); color: var(--tag-ressources-text); }
+
+        /* Section headings */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2.5rem 0 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--border);
+        }
+        .section-heading .emoji { font-size: 1.5rem; }
+        .section-heading h1 { margin: 0; border: none; }
+
+        /* Content sections */
+        section { margin-bottom: 1rem; }
+
+        ul { margin: 0.6rem 0 0.6rem 1.5rem; }
+        li { margin: 0.3rem 0; }
+
+        img { max-width: 100%; border-radius: 8px; margin: 0.8rem 0; }
+
+        .note {
+            background: #f0f7ff;
+            border-left: 3px solid var(--accent);
+            padding: 0.8rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .ref {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin: 0.3rem 0;
+        }
+
+        strong { font-weight: 600; }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .legend-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-<h1 id="chatgpt">ChatGPT</h1>
-<p>Présentation (in French) des dernières évolutions de l'IA. IA Génératives. ChatGPT et al... webotheque</p>
-<p>Dernière mise à jour : mars 2026</p>
-<h2 id="sommaire">Sommaire</h2>
-<ul>
-<li><a href="#Historique">Historique</a></li>
-<li><a href="#Classification--des--approches">Classification des approches</a></li>
-<li><a href="#ChatGPT--(novembre--2022)">ChatGPT</a></li>
-<li><a href="#Profusion--de--modèles--concurrents">Profusion de modèles concurrents</a></li>
-<li><a href="#Le--fine--tuning">Le fine tuning</a></li>
-<li><a href="#LangChain">LangChain</a></li>
-<li><a href="#Emerging-LLM-App-Stack">Emerging-LLM-App-Stack</a></li>
-<li><a href="#Cercle--vertueux--de--l'IA,--2024">Cercle vertueux de l'IA, 2024</a></li>
-<li><a href="#Retrieval--Augmented--Generation,--RAG">Retrieval Augmented Generation , RAG</a></li>
-<li><a href="#Agentic--RAG--approche--par--Agent">Agentic RAG , approche par Agent</a></li>
-<li><a href="#l'ère--du--raisonnement--2024-2025">L'ère du raisonnement, 2024-2025</a></li>
-<li><a href="#deepseek--le--séisme--open--source">DeepSeek, le séisme open source</a></li>
-<li><a href="#model--context--protocol--mcp">Model Context Protocol, MCP</a></li>
-<li><a href="#coding--agents">Coding Agents</a></li>
-<li><a href="#paysage--des--modèles--début--2026">Paysage des modèles début 2026</a></li>
-<li><a href="#régulation--eu--ai--act">Régulation, EU AI Act</a></li>
-<li><a href="#Webotheque">Webotheque</a></li>
-</ul>
-<h1 id="historique">Historique</h1>
-<p>ChatGPT fait parti du champ de l'Intelligence Artificielle dans le sous-ensemble Deep Learning :</p>
-<p><img alt="IA vue ensembliste" src="img/DeepLearning2IA.png" title="Vue ensembliste des categories d'IA" />.</p>
-<h1 id="classification-des-approches">Classification des approches</h1>
-<p>Voici les évolutions des modèles de Deep Learing depuis 10 ans. A chaque case cela represente un ou deux papiers originaux , puis des centaines de papiers de recherche et application ( site Arxiv)</p>
-<p><img alt="10 ans de Deep Learning" src="img/10yOfAI.png" title="Dix ans de Deep Learning" />.
- # ChatGPT (novembre 2022)</p>
-<p>Crée par Open AI en 2022. C'est une application de type Chatbot qui a surpassée l'attente des utilisateurs avec de nombreuses incompréhensions. Record de vitesse d'adoption battu, quelques millions d'utilisateurs en quelques jours. Multi-taches, Multi-langues. Absolument sans garde-fou et garantie :-)</p>
-<p># Profusion de modèles concurrents</p>
-<p>Voir le papier " A survey of LLM figure 1"</p>
-<p># Le fine tuning</p>
-<p>Voir le slide d'Andrew Karpathy</p>
-<p><img alt="GPT Pipeline d'entrainement" src="img/GPT-TrainingPipelines.PNG" title="GPT Pipeline d'entrainement" />.</p>
-<h1 id="langchain">LangChain</h1>
-<p>un LLM est associé au monde exterieur ( moteur de recherche, calculatrice , calendrier etc ..) via differents connecteurs voir les workflow suivants</p>
-<p>Note : LlamaIndex est son principal concurrent, plus orienté OSS. LangChain a une partie payante (LangSmith). En 2025, LangGraph (surcouche de LangChain pour les agents) est devenu très populaire pour orchestrer des workflows agentiques.</p>
-<p><img alt="GPT et LangChain" src="img/LangChain.png" title="GPT et LangChain" />.</p>
-<p># Emerging-LLM-App-Stack</p>
-<p>Graphique détaillé des modules en jeu lors d'un déploiement LLM , voir une vision épurée avec RAG</p>
-<p><img alt="LLM stack " src="img/Emerging-LLM-App-Stack.png" title="GPT et LLM new stack" />.</p>
-<h1 id="retrieval-augmented-generation-rag">Retrieval Augmented Generation , RAG</h1>
-<p>Ce pattern permet de préciser le contexte à placer dans le prompt. Il force un prompt engineering sur et permet par exemple d'ajouter des références dans la réponse pour des requetes sur ses propres données qui ont été "embeddés" dans une base de données "Vecteur". Embedding ou plongement est l'espace abstrait (multimodal eventuellement) qui transforme une requete ou un texte dans un vecteur. Voir par exemple Word2Vec pour l'apparition de cette notion</p>
-<p><img alt="RAG fwk " src="img/RAG.png" title="RAG Framework" />.  </p>
-<p>Une autre vue , par weights and bias ( wandb.ai )</p>
-<p><img alt="RAG fwk " src="img/wandb-course.png" title="RAG Framework 2" />.  </p>
-<h1 id="cercle-vertueux-de-lia-2024">Cercle vertueux de l'IA, 2024</h1>
-<p>Dans le rapport de la commission de l'IA , 13 mars 2024</p>
-<p><img alt="Cercle Vertueux de l'IA !" src="img/LeCercleVertueuxDel'IA.png" /></p>
-<h1 id="agentic-rag-approche-par-agent">Agentic RAG , approche par Agent</h1>
-<p>2023 a été l'apparition du RAG , 2024 sera celle de l'approche "agent" et souvent un mixte des deux approches.</p>
-<p>Le RAG donne accès aux données privées de l'entreprise , l'approche agent permet l'utilisation optimale d'outils externes appelés par un ou des LLM.</p>
-<p>Le fine-tuning n'est pas loin non plus. Voir la séparation dans le RAG survey de décembre 2023.</p>
-<p>Voici un Agentic RAG survey <a href="doc/TheRiseAndPoentialofLLMbasedAgent-Survey.pdf">TheRiseAndPoentialofLLMbasedAgent-Survey.pdf</a></p>
-<hr />
-<h1 id="lere-du-raisonnement-2024-2025">L'ère du raisonnement, 2024-2025</h1>
-<p>Si 2024 était l'année du scaling des paramètres, 2025 est celle du <strong>scaling du raisonnement</strong> (inference-time scaling).</p>
-<p>Le tournant a lieu en septembre 2024 avec la sortie de <strong>o1</strong> par OpenAI : au lieu d'entraîner un modèle plus gros, on lui donne plus de temps pour "réfléchir" à l'inférence. Le modèle décompose un problème en étapes intermédiaires (chain-of-thought) et s'auto-corrige.</p>
-<p>La technique clé est le <strong>RLVR</strong> (Reinforcement Learning with Verifiable Rewards) : on entraîne le modèle sur des problèmes dont la réponse est vérifiable automatiquement (maths, code). Le modèle développe alors spontanément des stratégies qui ressemblent à du "raisonnement" pour les humains (décomposition en sous-problèmes, backtracking, vérification).</p>
-<p>Comme le dit Andrej Karpathy : en entraînant les LLM contre des récompenses vérifiables, ils développent spontanément des stratégies qui ressemblent à du raisonnement humain.</p>
-<p>Les modèles de raisonnement atteignent désormais le niveau médaille d'or aux olympiades internationales de maths (IMO 2025).</p>
-<p>Principaux modèles de raisonnement :
-  - <strong>OpenAI</strong> : o1, o3, o3-mini, o4-mini
-  - <strong>Google</strong> : Gemini 2.5 Pro/Flash (avec "thinking mode"), Gemini Deep Think
-  - <strong>Anthropic</strong> : Claude avec "extended thinking"
-  - <strong>DeepSeek</strong> : DeepSeek-R1 (open source, le game changer)
-  - <strong>Qwen</strong> : QwQ, Qwen3 (open weight, montée en puissance spectaculaire en 2025)</p>
-<p>Ref : l'excellent article annuel de Simon Willison "2025: The year in LLMs" https://simonwillison.net/2025/Dec/31/the-year-in-llms/</p>
-<p>Ref : Sebastian Raschka "State of LLMs 2025" https://magazine.sebastianraschka.com/p/state-of-llms-2025</p>
-<h1 id="deepseek-le-seisme-open-source">DeepSeek, le séisme open source</h1>
-<p>En janvier 2025, la startup chinoise <strong>DeepSeek</strong> (basée à Hangzhou, financée par le hedge fund High-Flyer) publie <strong>DeepSeek-R1</strong>, un modèle de raisonnement open source sous licence MIT.</p>
-<p>Pourquoi c'est un séisme :
-  - Performance comparable à o1 d'OpenAI sur les benchmarks maths/code/raisonnement
-  - Coût d'entraînement annoncé : ~6 millions de dollars (vs centaines de millions pour GPT-4)
-  - Architecture Mixture-of-Experts (MoE) : 671 milliards de paramètres, mais seulement 37 milliards activés par requête
-  - Licence MIT = libre pour usage commercial
-  - Le 27 janvier 2025, NVIDIA perd 600 milliards de capitalisation en une seule journée. "Moment Sputnik" de l'IA ?</p>
-<p>DeepSeek a aussi popularisé la <strong>distillation</strong> : les connaissances de R1 ont été transférées vers des modèles plus petits (Qwen, Llama), qui deviennent alors très performants même sur du hardware modeste.</p>
-<p>L'écosystème open weight a explosé en 2025. Qwen (Alibaba) a dépassé Llama (Meta) en popularité (nombre de téléchargements et dérivés). Mistral AI utilise l'architecture DeepSeek V3 pour son modèle phare Mistral 3.</p>
-<p>Le RAG "classique" commence à perdre de sa pertinence face aux fenêtres de contexte géantes (1M+ tokens) et aux meilleurs petits modèles open weight.</p>
-<h1 id="model-context-protocol-mcp">Model Context Protocol, MCP</h1>
-<p>Annoncé par <strong>Anthropic en novembre 2024</strong>, le MCP est un protocole ouvert qui standardise la manière dont les LLM se connectent aux outils et sources de données externes.</p>
-<p>Avant MCP, chaque intégration nécessitait un connecteur custom → problème "N×M". MCP résout ça comme le LSP (Language Server Protocol) l'avait fait pour les IDE.</p>
-<p>Chronologie express :
-  - Nov 2024 : Anthropic publie MCP en open source (SDK Python/TypeScript)
-  - Mars 2025 : OpenAI adopte MCP (Sam Altman : "People love MCP")
-  - Avril 2025 : Google DeepMind confirme le support MCP pour Gemini
-  - Mai 2025 : Microsoft/GitHub rejoignent le comité de pilotage (Build 2025)
-  - Nov 2025 : mise à jour majeure du spec (opérations asynchrones, statelessness, registre communautaire)
-  - Déc 2025 : Anthropic donne MCP à l'<strong>Agentic AI Foundation</strong> sous la Linux Foundation, co-fondée avec Block et OpenAI</p>
-<p>En un an : plus de 5800 serveurs MCP, 300+ clients, 97M+ téléchargements mensuels du SDK.</p>
-<p>MCP est devenu le standard de facto pour connecter les agents IA au monde réel. C'est le successeur / remplacement de LangChain pour beaucoup d'usages.</p>
-<p>Ref : https://modelcontextprotocol.io</p>
-<p>Ref : https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/</p>
-<h1 id="coding-agents">Coding Agents</h1>
-<p>2025 est aussi l'année où les <strong>agents de code</strong> sont devenus réellement utilisables au quotidien.</p>
-<p>Un coding agent n'est pas un simple auto-complétion (type Copilot v1). C'est un système autonome qui peut : lire un codebase, planifier des modifications, exécuter du code, lancer des tests, itérer en boucle jusqu'à ce que les tests passent.</p>
-<p>Exemples notables :
-  - <strong>Claude Code</strong> (Anthropic) : agent CLI qui opère directement dans le terminal
-  - <strong>Cursor</strong> : IDE forké de VS Code avec agent intégré
-  - <strong>GitHub Copilot Workspace</strong> : agent intégré à GitHub
-  - <strong>Devin</strong> (Cognition) : premier "software engineer IA" autonome (controversé mais a ouvert la voie)
-  - <strong>Windsurf</strong> (Codeium), <strong>Aider</strong>, <strong>OpenHands</strong>...</p>
-<p>L'astuce qui change tout : donner à l'agent une <strong>suite de tests existante</strong>. Il peut alors coder, tester, corriger en boucle de manière fiable.</p>
-<p>Les benchmarks comme <strong>SWE-bench</strong> (résolution de vrais issues GitHub) sont devenus le standard pour évaluer ces agents. Claude Opus 4 a atteint 72.5% sur SWE-bench vs 54.6% pour GPT-4.</p>
-<h1 id="paysage-des-modeles-debut-2026">Paysage des modèles début 2026</h1>
-<p>Le paysage est devenu multi-polaire, fini le monopole d'OpenAI :</p>
-<p><strong>OpenAI</strong> : GPT-4o, GPT-4.1 (1M tokens contexte), GPT-5/5.1/5.2 (flagship), série o1/o3/o4-mini (raisonnement). ChatGPT a dépassé les 200 millions d'utilisateurs.</p>
-<p><strong>Anthropic</strong> : Claude 3.5 Sonnet/Haiku, Claude 4 Opus/Sonnet (extended thinking, leader SWE-bench), Claude 4.5, Claude 4.6. Approche "Constitutional AI" pour la sécurité.</p>
-<p><strong>Google DeepMind</strong> : Gemini 2.0/2.5/3.0/3.1 Pro, Gemini Flash, Gemini Deep Think. Fenêtres de contexte 1M+ tokens. Gemma (modèles ouverts). AlphaEvolve (optimisation de code par évolution).</p>
-<p><strong>Meta</strong> : Llama 3.x, Llama 4 (10M tokens contexte, MoE). Open weight mais en perte de vitesse face à Qwen/DeepSeek.</p>
-<p><strong>Alibaba/Qwen</strong> : Qwen 2.5, Qwen 3, Qwen3-Coder. A dépassé Llama en popularité dans la communauté open weight.</p>
-<p><strong>DeepSeek</strong> : R1, V3, R1 upgraded. Le disrupteur chinois.</p>
-<p><strong>Mistral AI</strong> (France) : Mistral 3 (basé sur architecture DeepSeek V3). Positionnement européen.</p>
-<p><strong>xAI</strong> (Elon Musk) : Grok 3, Grok 4.1. Montée en puissance avec le cluster Colossus.</p>
-<p>Tendances transversales :
-  - Multimodalité native (texte, image, audio, vidéo, code)
-  - Fenêtres de contexte de 1M à 10M tokens
-  - Modèles de raisonnement ("thinking") vs modèles rapides ("instant/flash")
-  - Small Language Models (SLM) : Phi-4 (Microsoft), Gemma 3n (Google) pour l'embarqué
-  - La compétition se joue autant sur l'inférence et le tooling que sur l'entraînement</p>
-<h1 id="regulation-eu-ai-act">Régulation, EU AI Act</h1>
-<p>L'<strong>EU AI Act</strong> est entré en vigueur en août 2024, avec un déploiement progressif jusqu'en 2026.</p>
-<p>Classification par niveau de risque : inacceptable, haut risque, risque limité, risque minimal.</p>
-<p>Les LLM "general purpose" (GPAI) ont des obligations spécifiques de transparence et de documentation.</p>
-<p>Voir le guide pratique : <a href="doc/GuidePratiqueRespectIA-Act-Europe.pdf">GuidePratiqueRespectIA-Act-Europe.pdf</a></p>
-<p>La question de la sécurité des agents IA (prompt injection, exfiltration de données via MCP, etc.) est devenue un sujet majeur en 2025. Voir OWASP Top 10 for LLM Applications.</p>
-<h1 id="webotheque">Webotheque</h1>
-<p>folder doc et mooc et/ou fichiers links</p>
+
+<h1>ChatGPT</h1>
+<p class="subtitle">Présentation (in French) des dernières évolutions de l'IA. IA Génératives. ChatGPT et al... webotheque</p>
+<p class="update">Dernière mise à jour : mars 2026</p>
+
+<hr>
+
+<!-- LEGEND -->
+<div class="legend">
+    <h2>Guide de lecture — Pictogrammes</h2>
+    <p style="color:var(--muted); font-size:0.9rem;">Chaque section est identifiée par un pictogramme pour faciliter la navigation :</p>
+    <div class="legend-grid">
+        <div class="legend-item li-histoire"><span class="emoji">📜</span><div><span class="label">Histoire et fondations</span><br><span class="desc">Origines, papiers fondateurs, timeline</span></div></div>
+        <div class="legend-item li-modeles"><span class="emoji">🧠</span><div><span class="label">Modèles LLM</span><br><span class="desc">GPT, Claude, Llama, Mistral, Gemini…</span></div></div>
+        <div class="legend-item li-outils"><span class="emoji">🔧</span><div><span class="label">Outils et frameworks</span><br><span class="desc">LangChain, RAG, agents, MCP</span></div></div>
+        <div class="legend-item li-nouveautes"><span class="emoji">🆕</span><div><span class="label">Nouveautés</span><br><span class="desc">Sorties, benchmarks, annonces</span></div></div>
+        <div class="legend-item li-actus"><span class="emoji">📰</span><div><span class="label">Actualités et débats</span><br><span class="desc">Régulation, éthique, marché</span></div></div>
+        <div class="legend-item li-cas"><span class="emoji">🎯</span><div><span class="label">Cas d'usage</span><br><span class="desc">Code, content, data, entreprise</span></div></div>
+        <div class="legend-item li-ressources"><span class="emoji">📚</span><div><span class="label">Ressources</span><br><span class="desc">Tutos, cours, MOOCs, papers</span></div></div>
+    </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+    <h2>Sommaire</h2>
+    <ul>
+        <li><span class="emoji">📜</span><a href="#historique">Historique</a></li>
+        <li><span class="emoji">📜</span><a href="#classification">Classification des approches</a></li>
+        <li><span class="emoji">🧠</span><a href="#chatgpt">ChatGPT (novembre 2022)</a></li>
+        <li><span class="emoji">🧠</span><a href="#profusion">Profusion de modèles concurrents</a></li>
+        <li><span class="emoji">🔧</span><a href="#finetuning">Le fine tuning</a></li>
+        <li><span class="emoji">🔧</span><a href="#langchain">LangChain</a></li>
+        <li><span class="emoji">🔧</span><a href="#llmstack">Emerging LLM App Stack</a></li>
+        <li><span class="emoji">🔧</span><a href="#rag">Retrieval Augmented Generation, RAG</a></li>
+        <li><span class="emoji">🎯</span><a href="#cercle">Cercle vertueux de l'IA, 2024</a></li>
+        <li><span class="emoji">🔧</span><a href="#agenticrag">Agentic RAG, approche par Agent</a></li>
+        <li><span class="emoji">🆕</span><a href="#raisonnement">L'ère du raisonnement, 2024-2025</a></li>
+        <li><span class="emoji">🆕</span><a href="#deepseek">DeepSeek, le séisme open source</a></li>
+        <li><span class="emoji">🔧</span><a href="#mcp">Model Context Protocol, MCP</a></li>
+        <li><span class="emoji">🎯</span><a href="#codingagents">Coding Agents</a></li>
+        <li><span class="emoji">🧠</span><a href="#paysage2026">Paysage des modèles début 2026</a></li>
+        <li><span class="emoji">🆕</span><a href="#kimi">Kimi : le challenger chinois qui monte</a></li>
+        <li><span class="emoji">🆕</span><a href="#openclaw">OpenClaw &amp; Moltbook : agents AI autonomes</a></li>
+        <li><span class="emoji">📰</span><a href="#regulation">Régulation, EU AI Act</a></li>
+        <li><span class="emoji">📚</span><a href="#webotheque">Webotheque</a></li>
+    </ul>
+</div>
+
+<hr>
+
+<!-- SECTIONS -->
+
+<section id="historique">
+    <div class="section-heading"><span class="emoji">📜</span><h1>Historique</h1></div>
+    <p>ChatGPT fait parti du champ de l'Intelligence Artificielle dans le sous-ensemble Deep Learning :</p>
+    <a href="img/DeepLearning2IA.png"><img src="img/DeepLearning2IA.png" alt="IA vue ensembliste" title="Vue ensembliste des categories d'IA"></a>
+</section>
+
+<section id="classification">
+    <div class="section-heading"><span class="emoji">📜</span><h1>Classification des approches</h1></div>
+    <p>Voici les évolutions des modèles de Deep Learning depuis 10 ans. A chaque case cela represente un ou deux papiers originaux, puis des centaines de papiers de recherche et application (site Arxiv)</p>
+    <a href="img/10yOfAI.png"><img src="img/10yOfAI.png" alt="10 ans de Deep Learning" title="Dix ans de Deep Learning"></a>
+</section>
+
+<section id="chatgpt">
+    <div class="section-heading"><span class="emoji">🧠</span><h1>ChatGPT (novembre 2022)</h1></div>
+    <p>Crée par Open AI en 2022. C'est une application de type Chatbot qui a surpassée l'attente des utilisateurs avec de nombreuses incompréhensions. Record de vitesse d'adoption battu, quelques millions d'utilisateurs en quelques jours. Multi-taches, Multi-langues. Absolument sans garde-fou et garantie :-)</p>
+</section>
+
+<section id="profusion">
+    <div class="section-heading"><span class="emoji">🧠</span><h1>Profusion de modèles concurrents</h1></div>
+    <p>Voir le papier "A survey of LLM figure 1"</p>
+</section>
+
+<section id="finetuning">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>Le fine tuning</h1></div>
+    <p>Voir le slide d'Andrew Karpathy</p>
+    <a href="img/GPT-TrainingPipelines.PNG"><img src="img/GPT-TrainingPipelines.PNG" alt="GPT Pipeline d'entrainement" title="GPT Pipeline d'entrainement"></a>
+</section>
+
+<section id="langchain">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>LangChain</h1></div>
+    <p>un LLM est associé au monde exterieur (moteur de recherche, calculatrice, calendrier etc..) via differents connecteurs voir les workflow suivants</p>
+    <p>Note : LlamaIndex est son principal concurrent, plus orienté OSS. LangChain a une partie payante (LangSmith). En 2025, LangGraph (surcouche de LangChain pour les agents) est devenu très populaire pour orchestrer des workflows agentiques.</p>
+    <a href="img/LangChain.png"><img src="img/LangChain.png" alt="GPT et LangChain" title="GPT et LangChain"></a>
+</section>
+
+<section id="llmstack">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>Emerging LLM App Stack</h1></div>
+    <p>Graphique détaillé des modules en jeu lors d'un déploiement LLM, voir une vision épurée avec RAG</p>
+    <a href="img/Emerging-LLM-App-Stack.png"><img src="img/Emerging-LLM-App-Stack.png" alt="LLM stack" title="GPT et LLM new stack"></a>
+</section>
+
+<section id="rag">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>Retrieval Augmented Generation, RAG</h1></div>
+    <p>Ce pattern permet de préciser le contexte à placer dans le prompt. Il force un prompt engineering sur et permet par exemple d'ajouter des références dans la réponse pour des requetes sur ses propres données qui ont été "embeddés" dans une base de données "Vecteur". Embedding ou plongement est l'espace abstrait (multimodal eventuellement) qui transforme une requete ou un texte dans un vecteur. Voir par exemple Word2Vec pour l'apparition de cette notion</p>
+    <a href="img/RAG.png"><img src="img/RAG.png" alt="RAG Framework" title="RAG Framework"></a>
+    <p>Une autre vue, par weights and bias (wandb.ai)</p>
+    <a href="img/wandb-course.png"><img src="img/wandb-course.png" alt="RAG Framework 2" title="RAG Framework 2"></a>
+</section>
+
+<section id="cercle">
+    <div class="section-heading"><span class="emoji">🎯</span><h1>Cercle vertueux de l'IA, 2024</h1></div>
+    <p>Dans le rapport de la commission de l'IA, 13 mars 2024</p>
+    <a href="img/LeCercleVertueuxDel'IA.png"><img src="img/LeCercleVertueuxDel'IA.png" alt="Cercle Vertueux de l'IA"></a>
+</section>
+
+<section id="agenticrag">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>Agentic RAG, approche par Agent</h1></div>
+    <p>2023 a été l'apparition du RAG, 2024 sera celle de l'approche "agent" et souvent un mixte des deux approches.</p>
+    <p>Le RAG donne accès aux données privées de l'entreprise, l'approche agent permet l'utilisation optimale d'outils externes appelés par un ou des LLM.</p>
+    <p>Le fine-tuning n'est pas loin non plus. Voir la séparation dans le RAG survey de décembre 2023.</p>
+    <p>Voici un Agentic RAG survey <a href="doc/TheRiseAndPoentialofLLMbasedAgent-Survey.pdf">TheRiseAndPoentialofLLMbasedAgent-Survey.pdf</a></p>
+    <div class="note">A partir d'ici le contenu a été mis à jour avec l'aide d'Opus 4.6 !!</div>
+</section>
+
+<section id="raisonnement">
+    <div class="section-heading"><span class="emoji">🆕</span><h1>L'ère du raisonnement, 2024-2025</h1></div>
+    <p>Si 2024 était l'année du scaling des paramètres, 2025 est celle du <strong>scaling du raisonnement</strong> (inference-time scaling).</p>
+    <p>Le tournant a lieu en septembre 2024 avec la sortie de <strong>o1</strong> par OpenAI : au lieu d'entraîner un modèle plus gros, on lui donne plus de temps pour "réfléchir" à l'inférence. Le modèle décompose un problème en étapes intermédiaires (chain-of-thought) et s'auto-corrige.</p>
+    <p>La technique clé est le <strong>RLVR</strong> (Reinforcement Learning with Verifiable Rewards) : on entraîne le modèle sur des problèmes dont la réponse est vérifiable automatiquement (maths, code). Le modèle développe alors spontanément des stratégies qui ressemblent à du "raisonnement" pour les humains (décomposition en sous-problèmes, backtracking, vérification).</p>
+    <p>Comme le dit Andrej Karpathy : en entraînant les LLM contre des récompenses vérifiables, ils développent spontanément des stratégies qui ressemblent à du raisonnement humain.</p>
+    <p>Les modèles de raisonnement atteignent désormais le niveau médaille d'or aux olympiades internationales de maths (IMO 2025).</p>
+    <p>Principaux modèles de raisonnement :</p>
+    <ul>
+        <li><strong>OpenAI</strong> : o1, o3, o3-mini, o4-mini</li>
+        <li><strong>Google</strong> : Gemini 2.5 Pro/Flash (avec "thinking mode"), Gemini Deep Think</li>
+        <li><strong>Anthropic</strong> : Claude avec "extended thinking"</li>
+        <li><strong>DeepSeek</strong> : DeepSeek-R1 (open source, le game changer)</li>
+        <li><strong>Qwen</strong> : QwQ, Qwen3 (open weight, montée en puissance spectaculaire en 2025)</li>
+    </ul>
+    <p class="ref">Ref : Simon Willison "<a href="https://simonwillison.net/2025/Dec/31/the-year-in-llms/">2025: The year in LLMs</a>"</p>
+    <p class="ref">Ref : Sebastian Raschka "<a href="https://magazine.sebastianraschka.com/p/state-of-llms-2025">State of LLMs 2025</a>"</p>
+</section>
+
+<section id="deepseek">
+    <div class="section-heading"><span class="emoji">🆕</span><h1>DeepSeek, le séisme open source</h1></div>
+    <p>En janvier 2025, la startup chinoise <strong>DeepSeek</strong> (basée à Hangzhou, financée par le hedge fund High-Flyer) publie <strong>DeepSeek-R1</strong>, un modèle de raisonnement open source sous licence MIT.</p>
+    <p>Pourquoi c'est un séisme :</p>
+    <ul>
+        <li>Performance comparable à o1 d'OpenAI sur les benchmarks maths/code/raisonnement</li>
+        <li>Coût d'entraînement annoncé : ~6 millions de dollars (vs centaines de millions pour GPT-4)</li>
+        <li>Architecture Mixture-of-Experts (MoE) : 671 milliards de paramètres, mais seulement 37 milliards activés par requête</li>
+        <li>Licence MIT = libre pour usage commercial</li>
+        <li>Le 27 janvier 2025, NVIDIA perd 600 milliards de capitalisation en une seule journée. "Moment Sputnik" de l'IA ?</li>
+    </ul>
+    <p>DeepSeek a aussi popularisé la <strong>distillation</strong> : les connaissances de R1 ont été transférées vers des modèles plus petits (Qwen, Llama), qui deviennent alors très performants même sur du hardware modeste.</p>
+    <p>L'écosystème open weight a explosé en 2025. Qwen (Alibaba) a dépassé Llama (Meta) en popularité (nombre de téléchargements et dérivés). Mistral AI utilise l'architecture DeepSeek V3 pour son modèle phare Mistral 3.</p>
+    <p>Le RAG "classique" commence à perdre de sa pertinence face aux fenêtres de contexte géantes (1M+ tokens) et aux meilleurs petits modèles open weight.</p>
+</section>
+
+<section id="mcp">
+    <div class="section-heading"><span class="emoji">🔧</span><h1>Model Context Protocol, MCP</h1></div>
+    <p>Annoncé par <strong>Anthropic en novembre 2024</strong>, le MCP est un protocole ouvert qui standardise la manière dont les LLM se connectent aux outils et sources de données externes.</p>
+    <p>Avant MCP, chaque intégration nécessitait un connecteur custom → problème "N×M". MCP résout ça comme le LSP (Language Server Protocol) l'avait fait pour les IDE.</p>
+    <p>Chronologie express :</p>
+    <ul>
+        <li>Nov 2024 : Anthropic publie MCP en open source (SDK Python/TypeScript)</li>
+        <li>Mars 2025 : OpenAI adopte MCP (Sam Altman : "People love MCP")</li>
+        <li>Avril 2025 : Google DeepMind confirme le support MCP pour Gemini</li>
+        <li>Mai 2025 : Microsoft/GitHub rejoignent le comité de pilotage (Build 2025)</li>
+        <li>Nov 2025 : mise à jour majeure du spec (opérations asynchrones, statelessness, registre communautaire)</li>
+        <li>Déc 2025 : Anthropic donne MCP à l'<strong>Agentic AI Foundation</strong> sous la Linux Foundation, co-fondée avec Block et OpenAI</li>
+    </ul>
+    <p>En un an : plus de 5800 serveurs MCP, 300+ clients, 97M+ téléchargements mensuels du SDK.</p>
+    <p>MCP est devenu le standard de facto pour connecter les agents IA au monde réel. C'est le successeur / remplacement de LangChain pour beaucoup d'usages.</p>
+    <p class="ref">Ref : <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a></p>
+    <p class="ref">Ref : <a href="https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/">First MCP Anniversary</a></p>
+</section>
+
+<section id="codingagents">
+    <div class="section-heading"><span class="emoji">🎯</span><h1>Coding Agents</h1></div>
+    <p>2025 est aussi l'année où les <strong>agents de code</strong> sont devenus réellement utilisables au quotidien.</p>
+    <p>Un coding agent n'est pas un simple auto-complétion (type Copilot v1). C'est un système autonome qui peut : lire un codebase, planifier des modifications, exécuter du code, lancer des tests, itérer en boucle jusqu'à ce que les tests passent.</p>
+    <p>Exemples notables :</p>
+    <ul>
+        <li><strong><a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview">Claude Code</a></strong> (Anthropic) : agent CLI qui opère directement dans le terminal</li>
+        <li><strong><a href="https://cursor.sh/">Cursor</a></strong> : IDE forké de VS Code avec agent intégré</li>
+        <li><strong><a href="https://github.com/features/copilot">GitHub Copilot Workspace</a></strong> : agent intégré à GitHub</li>
+        <li><strong><a href="https://devin.ai/">Devin</a></strong> (Cognition) : premier "software engineer IA" autonome (controversé mais a ouvert la voie)</li>
+        <li><strong><a href="https://codeium.com/windsurf">Windsurf</a></strong> (Codeium), <strong><a href="https://aider.chat/">Aider</a></strong>, <strong><a href="https://github.com/All-Hands-AI/OpenHands">OpenHands</a></strong>...</li>
+    </ul>
+    <p>L'astuce qui change tout : donner à l'agent une <strong>suite de tests existante</strong>. Il peut alors coder, tester, corriger en boucle de manière fiable.</p>
+    <p>Les benchmarks comme <strong>SWE-bench</strong> (résolution de vrais issues GitHub) sont devenus le standard pour évaluer ces agents. Claude Opus 4 a atteint 72.5% sur SWE-bench vs 54.6% pour GPT-4.</p>
+</section>
+
+<section id="paysage2026">
+    <div class="section-heading"><span class="emoji">🧠</span><h1>Paysage des modèles début 2026</h1></div>
+    <p>Le paysage est devenu multi-polaire, fini le monopole d'OpenAI :</p>
+
+    <p><strong><a href="https://openai.com/">OpenAI</a></strong> : <a href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a>, <a href="https://openai.com/index/gpt-4-1/">GPT-4.1</a> (1M tokens contexte), <a href="https://openai.com/index/introducing-gpt-5/">GPT-5</a>/5.1/5.2 (flagship), série <a href="https://openai.com/index/learning-to-reason-with-llms/">o1</a>/<a href="https://openai.com/index/introducing-o3-and-o4-mini/">o3</a>/<a href="https://openai.com/index/introducing-o3-and-o4-mini/">o4-mini</a> (raisonnement). ChatGPT a dépassé les 200 millions d'utilisateurs.</p>
+
+    <p><strong><a href="https://www.anthropic.com/">Anthropic</a></strong> : Claude 3.5 Sonnet/Haiku, <a href="https://www.anthropic.com/news/claude-4">Claude 4 Opus/Sonnet</a> (extended thinking, leader SWE-bench), Claude 4.5, Claude 4.6. Approche "<a href="https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback">Constitutional AI</a>" pour la sécurité.</p>
+
+    <p><strong><a href="https://deepmind.google/">Google DeepMind</a></strong> : <a href="https://deepmind.google/technologies/gemini/">Gemini 2.0/2.5/3.0/3.1 Pro</a>, Gemini Flash, Gemini Deep Think. Fenêtres de contexte 1M+ tokens. <a href="https://ai.google.dev/gemma">Gemma</a> (modèles ouverts). <a href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/">AlphaEvolve</a> (optimisation de code par évolution).</p>
+
+    <p><strong><a href="https://ai.meta.com/">Meta AI</a></strong> : <a href="https://llama.meta.com/">Llama 3.x</a>, <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/">Llama 4</a> (10M tokens contexte, MoE). Open weight mais en perte de vitesse face à Qwen/DeepSeek.</p>
+
+    <p><strong><a href="https://qwenlm.github.io/">Alibaba/Qwen</a></strong> : <a href="https://qwenlm.github.io/blog/qwen2.5/">Qwen 2.5</a>, <a href="https://qwenlm.github.io/blog/qwen3/">Qwen 3</a>, Qwen3-Coder. A dépassé Llama en popularité dans la communauté open weight.</p>
+
+    <p><strong><a href="https://www.deepseek.com/">DeepSeek</a></strong> : <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1">R1</a>, <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">V3</a>, R1 upgraded. Le disrupteur chinois.</p>
+
+    <p><strong><a href="https://mistral.ai/">Mistral AI</a></strong> (France) : Mistral 3 (basé sur architecture DeepSeek V3). Positionnement européen.</p>
+
+    <p><strong><a href="https://x.ai/">xAI</a></strong> (Elon Musk) : <a href="https://x.ai/blog/grok-3">Grok 3</a>, Grok 4.1. Montée en puissance avec le cluster Colossus.</p>
+
+    <p>Tendances transversales :</p>
+    <ul>
+        <li>Multimodalité native (texte, image, audio, vidéo, code)</li>
+        <li>Fenêtres de contexte de 1M à 10M tokens</li>
+        <li>Modèles de raisonnement ("thinking") vs modèles rapides ("instant/flash")</li>
+        <li>Small Language Models (SLM) : <a href="https://huggingface.co/microsoft/phi-4">Phi-4</a> (Microsoft), <a href="https://ai.google.dev/gemma">Gemma 3n</a> (Google) pour l'embarqué</li>
+        <li>La compétition se joue autant sur l'inférence et le tooling que sur l'entraînement</li>
+    </ul>
+</section>
+
+<section id="kimi">
+    <div class="section-heading"><span class="emoji">🆕</span><h1>Kimi : le challenger chinois qui monte</h1></div>
+    <p><a href="https://kimi.com/en">Kimi</a> est le chatbot et la série de modèles de langage développés par la société chinoise <a href="https://www.moonshot.ai/">Moonshot AI</a>, fondée en mars 2023. Leur dernier modèle, <strong>Kimi K2.5</strong>, sorti en <strong>janvier 2026</strong>, repose sur une architecture Mixture-of-Experts (MoE) totalisant 1 trillion de paramètres, dont seulement 32 milliards sont actifs par requête — ce qui le rend à la fois performant et économique.</p>
+    <p>Côté tarifs, l'API est proposée à <strong>0,60 $/M tokens en entrée</strong> et <strong>2,50 $/M tokens en sortie</strong>, soit environ 76 % moins cher que Claude Opus 4.5. Les benchmarks montrent des performances solides, notamment en coding (SWE-bench), en raisonnement mathématique (AIME, HMMT) et en vision (MMMU-Pro).</p>
+</section>
+
+<section id="openclaw">
+    <div class="section-heading"><span class="emoji">🆕</span><h1>OpenClaw &amp; Moltbook : agents AI autonomes</h1></div>
+    <p><strong><a href="https://github.com/psteinberger/openclaw">OpenClaw</a></strong> est un agent AI autonome open-source créé par le développeur autrichien Peter Steinberger, publié initialement en novembre 2025 sous le nom "Clawdbot". Le projet a connu un succès viral avec plus de 247 000 étoiles sur GitHub début mars 2026.</p>
+    <p><strong>Moltbook</strong> est un forum internet réservé aux agents IA, lancé le 28 janvier 2026 par Matt Schlicht, avec un format de type Reddit où seuls des agents IA peuvent poster. Ces deux projets illustrent l'émergence d'un écosystème où les agents IA interagissent de manière autonome.</p>
+</section>
+
+<section id="regulation">
+    <div class="section-heading"><span class="emoji">📰</span><h1>Régulation, EU AI Act</h1></div>
+    <p>L'<strong>EU AI Act</strong> est entré en vigueur en août 2024, avec un déploiement progressif jusqu'en 2026.</p>
+    <p>Classification par niveau de risque : inacceptable, haut risque, risque limité, risque minimal.</p>
+    <p>Les LLM "general purpose" (GPAI) ont des obligations spécifiques de transparence et de documentation.</p>
+    <p>Voir le guide pratique : <a href="doc/GuidePratiqueRespectIA-Act-Europe.pdf">GuidePratiqueRespectIA-Act-Europe.pdf</a></p>
+    <p>La question de la sécurité des agents IA (prompt injection, exfiltration de données via MCP, etc.) est devenue un sujet majeur en 2025. Voir OWASP Top 10 for LLM Applications.</p>
+    <p>A lire absolument : <strong>"Agents of Chaos"</strong> (février 2026), une étude de red-teaming par des chercheurs de Harvard, MIT, Stanford et Carnegie Mellon. Ils ont déployé 6 agents IA autonomes (avec mémoire persistante, email, Discord, accès shell) pendant 2 semaines et laissé 20 chercheurs les tester, dont certains en mode adversarial. Résultat : divulgation de données sensibles, exécution d'actions destructives, usurpation d'identité entre agents, déni de service... mais aussi des cas de résilience où les agents ont su résister à la manipulation sociale.</p>
+    <ul>
+        <li>PDF : <a href="doc/AgentsOfChaos.pdf">AgentsOfChaos-2602.20021.pdf</a></li>
+        <li>arXiv : <a href="https://arxiv.org/abs/2602.20021">2602.20021</a></li>
+        <li>Site interactif : <a href="https://agentsofchaos.baulab.info/">agentsofchaos.baulab.info</a></li>
+    </ul>
+</section>
+
+<section id="webotheque">
+    <div class="section-heading"><span class="emoji">📚</span><h1>Webotheque</h1></div>
+    <p>folder doc et mooc et/ou fichiers links</p>
+</section>
+
+<hr>
+<p style="text-align:center; color:var(--muted); font-size:0.8rem; margin-top:2rem;">
+    Généré avec l'aide de Claude (Anthropic) — Mars 2026 — <a href="https://github.com/brunosez/ChatGPT">github.com/brunosez/ChatGPT</a>
+</p>
+
 </body>
 </html>
